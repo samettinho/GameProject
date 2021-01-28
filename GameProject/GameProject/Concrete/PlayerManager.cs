@@ -8,9 +8,21 @@ namespace GameProject.Concrete
 {
     class PlayerManager : IPlayerManager
     {
+        IUserValidationService _userValidationService;
+
+        public PlayerManager(IUserValidationService userValidationService)
+        {
+            _userValidationService = userValidationService;
+        }
+
         public void Add(Player player)
         {
-            Console.WriteLine("Oyuncu eklendi : "+ player.FirstName);
+            if (_userValidationService.Validate(player)==true)
+            {
+                Console.WriteLine("Oyuncu eklendi : " + player.FirstName);
+            }
+            else Console.WriteLine("Kullanıcı gerçek değildir. Doğrulama başarısız" + player.FirstName);
+
         }
         public void Delete(Player player)
         {

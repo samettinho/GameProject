@@ -9,7 +9,7 @@ namespace GameProject.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DateOfBirth { get; set; }
+        public int DateOfBirth { get; set; }
         public string NationalitiyId { get; set; }
 
     }
